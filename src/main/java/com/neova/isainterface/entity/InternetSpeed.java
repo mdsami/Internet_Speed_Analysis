@@ -30,4 +30,4 @@ public class InternetSpeed {
 	public String toString() {
 		return "InternetSpeed [timestamp=" + timestamp + ", speed=" + speed + "]";
 	}
-}//End of InternetSpeed Class.
+}// End of InternetSpeed Class.

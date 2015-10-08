@@ -21,7 +21,7 @@ public class PushHourlyDataTask {
 
 		BufferedInputStream in = new BufferedInputStream(new URL(downloadLink).openStream());
 		int i = 0;
-		final int cycles = 100;
+		final int cycles = 10;
 		try {
 			long totalDownload = 0; // total bytes downloaded
 			final int BUFFER_SIZE = 1024; // size of the buffer
@@ -41,16 +41,16 @@ public class PushHourlyDataTask {
 			long timeElapsed = (System.nanoTime() - startTime);
 			float bytesPerSec = totalDownload * 1000000000 / (timeElapsed);
 			logger.info(timeElapsed + " Nano Seconds Time Elapsed in downloading.");
-			/* download rate in kilobytes per second */
-			kbPerSec = bytesPerSec / (BUFFER_SIZE);
-			logger.info("Downloading speed in KBps = " + kbPerSec + " KBps");
+			/* download rate in kilobits per second */
+			kbPerSec = bytesPerSec * 8 / (BUFFER_SIZE);
+			logger.info("Downloading speed in Kbps = " + kbPerSec + " Kbps");
 			// Insert this data in Hadoop
 			// using quartz in every 10 minutes.
 		} catch (Exception e) {
 			logger.error(" Exception while downloading data,", e);
 		} finally {
 			in.close();
-		}// End of try-catch-finally Method.
+		} // End of try-catch-finally Method.
 
 		Date currentDate = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

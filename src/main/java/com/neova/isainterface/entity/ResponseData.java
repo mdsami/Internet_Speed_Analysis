@@ -6,6 +6,14 @@ public class ResponseData {
 	double minSpeed;
 	double avgSpeed;
 
+	// Parameterized Constructor.
+	public ResponseData() {
+		maxSpeed = 0;
+		minSpeed = 0;
+		avgSpeed = 0;
+	}
+
+	// Parameterized Constructor.
 	public ResponseData(double maxSpeed, double minSpeed, double avgSpeed) {
 
 		this.maxSpeed = maxSpeed;

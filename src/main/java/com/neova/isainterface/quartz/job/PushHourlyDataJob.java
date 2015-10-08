@@ -11,16 +11,16 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import com.neova.isainterface.quartz.task.PushHourlyDataTask;
 
 public class PushHourlyDataJob extends QuartzJobBean {
-	
+
 	private PushHourlyDataTask pushHourlyDataTask;
 	private static final Logger logger = Logger.getLogger(PushHourlyDataJob.class);
+
 	public void setPushHourlyDataTask(PushHourlyDataTask pushHourlyDataTask) {
 		this.pushHourlyDataTask = pushHourlyDataTask;
 	}
 
 	@Override
-	protected void executeInternal(JobExecutionContext arg0)
-			throws JobExecutionException {
+	protected void executeInternal(JobExecutionContext arg0) throws JobExecutionException {
 		try {
 			pushHourlyDataTask.pushHourlyData();
 		} catch (MalformedURLException e) {
@@ -28,5 +28,5 @@ public class PushHourlyDataJob extends QuartzJobBean {
 		} catch (IOException e) {
 			logger.error("Error while executing pushHourlyData(). ", e);
 		}
-	}//End of executeInternal() Method.
-}//End of PushHourlyDataJob Class.
+	}// End of executeInternal() Method.
+}// End of PushHourlyDataJob Class.
