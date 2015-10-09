@@ -25,6 +25,7 @@ public class InternetSpeedDao extends HiveJdbcClient {
 			PreparedStatement preparedStatement = getConnection().prepareStatement(insertSql);
 			preparedStatement.setString(1, timestamp);
 			preparedStatement.setDouble(2, speed);
+			logger.info("insert query is ("+preparedStatement+").");
 			rowsAffected = update(preparedStatement);
 		} catch (SQLException e) {
 			logger.error("Error while executing query for inserting data. ", e);
@@ -32,7 +33,7 @@ public class InternetSpeedDao extends HiveJdbcClient {
 		return rowsAffected;
 	}// End of insert() method.
 
-	// method to select data from database.
+	// method to select all data from database.
 	public List<InternetSpeed> selectAll() {
 		logger.info("calling selectAll() method to select data.");
 		String selectAllSql = "SELECT * FROM internet_speed";
@@ -40,6 +41,7 @@ public class InternetSpeedDao extends HiveJdbcClient {
 		double speed;
 		InternetSpeed internetSpeed;
 		List<InternetSpeed> internetSpeedList = new ArrayList<InternetSpeed>();
+		logger.info("select all data query is ("+selectAllSql+").");
 		ResultSet res = executeQuery(selectAllSql);
 		try {
 			while (res.next()) {
@@ -47,7 +49,7 @@ public class InternetSpeedDao extends HiveJdbcClient {
 				speed = res.getDouble(2);
 				internetSpeed = new InternetSpeed(timestamp, speed);
 				internetSpeedList.add(internetSpeed);
-				System.out.println(String.valueOf(res.getString(1)) + '\t' + String.valueOf(res.getDouble(2)));
+				logger.info("Selected Data :- timestamp = " + String.valueOf(res.getString(1)) + " and speed = " + String.valueOf(res.getDouble(2)) + ".");
 			} // End of while loop.
 		} catch (SQLException e) {
 			logger.error("Error while executing query for selecting data. ", e);
@@ -66,6 +68,7 @@ public class InternetSpeedDao extends HiveJdbcClient {
 		double minSpeed;
 		double avgSpeed;
 		ResponseData responseData = null;
+		logger.info("select specified data query is ("+selectDataSql+").");
 		ResultSet res = executeQuery(selectDataSql);
 		try {
 			while (res.next()) {
@@ -79,15 +82,4 @@ public class InternetSpeedDao extends HiveJdbcClient {
 		} // End of try-catch block.
 		return responseData;
 	}// End of selectData() method.
-
-	public static void main(String args[]) throws SQLException {
-		/*
-		 * InternetSpeedDao isdao = new InternetSpeedDao(); List<InternetSpeed>
-		 * selectAll = isdao.selectAll(); System.out.println(selectAll);
-		 */
-		String startDate = "2015-09-30";
-		String endDate = "2015-10-02";
-		ResponseData selectData = InternetSpeedDao.selectData(startDate, endDate);
-		System.out.println(selectData.toString());
-	}
-}
+}// End of InternetSpeedDao Class

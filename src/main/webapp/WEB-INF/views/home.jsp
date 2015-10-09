@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
@@ -66,34 +66,51 @@
 </style>
 </head>
 <body>
-	<h1>Internet Download Speed Analysis</h1>
+	<center>
+		<h1>Internet Download Speed Analysis</h1>
+	</center>
 	<div class="PA5">
-		<strong>The time on the server is ${serverTime}.</strong>
+		<center>
+			<strong>The time on the server is ${serverTime}.</strong>
+		</center>
 	</div>
 	<div class="PA5">
-		<strong>Internet Download Speed Analysis</strong>
+		<center>
+			<u><strong>Internet Download Speed Analysis Results</strong></u><br />
+		</center>
 	</div>
 	<div class="PA5">
 		<div class="FL PR15 PL15 brdr">
 			<div class="PT3 PB3 UC gL_10">Max Speed</div>
 			<div class="gD_12 PB3" id="b_prevclose">
-				<strong>${responseData.maxSpeed} (kbps)</strong>
+				<strong><fmt:formatNumber type="number"
+						maxFractionDigits="2" value="${responseData.maxSpeed}" /> (kbps)</strong>
 			</div>
 		</div>
 		<div class="FL PR15 PL15 brdr">
 			<div class="PT3 PB3 UC gL_10">Min Speed</div>
 			<div class="gD_12 PB3" id="b_open">
-				<strong>${responseData.minSpeed} (kbps)</strong>
+				<strong><fmt:formatNumber type="number"
+						maxFractionDigits="2" value="${responseData.minSpeed}" /> (kbps)</strong>
 			</div>
 		</div>
 		<div class="FL PR15 PL15 brdr">
 			<div class="PT3 PB3 UC gL_10">Avg Speed</div>
 			<div class="gD_12 PB3" id="b_bidprice_qty">
-				<strong>${responseData.avgSpeed} (kbps)</strong>
+				<strong><fmt:formatNumber type="number"
+						maxFractionDigits="2" value="${responseData.avgSpeed}" /> (kbps)</strong>
+			</div>
+		</div>
+		<div class="PA5">
+			<div class="FL PR15 PL15 brdr">
+				<div class="PT3 PB3 UC gL_10">Current Speed</div>
+				<div class="gD_12 PB3" id="b_bidprice_qty">
+					<strong><fmt:formatNumber type="number"
+							maxFractionDigits="2" value="${currentDownloadSpeed}" /> (kbps)</strong>
+				</div>
 			</div>
 		</div>
 		<div class="CL"></div>
 	</div>
-
 </body>
 </html>

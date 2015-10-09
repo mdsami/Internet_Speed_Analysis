@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,12 +15,26 @@ import com.neova.isainterface.entity.InternetSpeed;
 
 public class PushHourlyDataTask {
 	private static final String downloadLink = "http://www.us.apache.org/dist//activemq/5.12.0/apache-activemq-5.12.0-bin.zip";
-	double kbPerSec;
 	private static final Logger logger = Logger.getLogger(PushHourlyDataTask.class);
 
 	public void pushHourlyData() throws MalformedURLException, IOException {
 
+		Date currentDate = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String currentTime = sdf.format(currentDate);
+		logger.info("timstamp is " + currentTime + ".");
+		double kbPerSec = downloadingSpeedInKbps();
+		InternetSpeed internetSpeed = new InternetSpeed(currentTime, kbPerSec);
+		InternetSpeedDao internetSpeedDao = new InternetSpeedDao();
+		int rowsAffected = internetSpeedDao.insert(internetSpeed);
+		logger.info("No. of rows Inserted.." + rowsAffected);
+		logger.info("Calling Push Hourly Data...");
+	}// End of pushHourlyData() Method.
+
+	public double downloadingSpeedInKbps() throws MalformedURLException, IOException {
+
 		BufferedInputStream in = new BufferedInputStream(new URL(downloadLink).openStream());
+		double kbPerSec = 0;
 		int i = 0;
 		final int cycles = 10;
 		try {
@@ -44,22 +59,11 @@ public class PushHourlyDataTask {
 			/* download rate in kilobits per second */
 			kbPerSec = bytesPerSec * 8 / (BUFFER_SIZE);
 			logger.info("Downloading speed in Kbps = " + kbPerSec + " Kbps");
-			// Insert this data in Hadoop
-			// using quartz in every 10 minutes.
 		} catch (Exception e) {
 			logger.error(" Exception while downloading data,", e);
 		} finally {
 			in.close();
 		} // End of try-catch-finally Method.
-
-		Date currentDate = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String currentTime = sdf.format(currentDate);
-
-		InternetSpeed internetSpeed = new InternetSpeed(currentTime, kbPerSec);
-		InternetSpeedDao internetSpeedDao = new InternetSpeedDao();
-		int rowsAffected = internetSpeedDao.insert(internetSpeed);
-		logger.info("No. of rows Inserted.." + rowsAffected);
-		logger.info("Calling Push Hourly Data...");
-	}// End of pushHourlyData() Method.
+		return kbPerSec;
+	}// End of downloadingSpeedInKbps() Method.
 }// End of PushHourlyDataTask Class.

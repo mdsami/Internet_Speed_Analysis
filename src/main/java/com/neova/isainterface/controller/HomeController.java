@@ -1,5 +1,7 @@
 package com.neova.isainterface.controller;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.neova.isainterface.dao.InternetSpeedDao;
 import com.neova.isainterface.entity.ResponseData;
+import com.neova.isainterface.quartz.task.PushHourlyDataTask;
 
 /**
  * Handles requests for the application home page.
@@ -22,9 +25,12 @@ public class HomeController {
 
 	/**
 	 * Simply selects the home view to render by returning its name.
+	 * 
+	 * @throws IOException
+	 * @throws MalformedURLException
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model) throws MalformedURLException, IOException {
 
 		logger.info("Welcome home! The client locale is  {" + locale + "}");
 		Date date = new Date();
@@ -32,9 +38,14 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		// TODO: start date end date is hard coded for now.
 		ResponseData responseData = InternetSpeedDao.selectData("2015-10-06 11:30:06.0", "2015-10-08 19:00:05.0");
-		logger.info("Adding formattedDate " + formattedDate + " to attribute serverTime in model.");
+		PushHourlyDataTask pushHourlyDataTask = new PushHourlyDataTask();
+		double currentDownloadSpeed = pushHourlyDataTask.downloadingSpeedInKbps();
+		logger.info("Adding serverTime to  model.");
 		model.addAttribute("serverTime", formattedDate);
+		logger.info("Adding responseData object to  model.");
 		model.addAttribute("responseData", responseData);
+		logger.info("Adding currentDownloadSpeed to model.");
+		model.addAttribute("currentDownloadSpeed", currentDownloadSpeed);
 		return "home";
 	}
 }
