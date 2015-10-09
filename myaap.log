@@ -20744,3 +20744,124 @@ Caused by: org.apache.thrift.TApplicationException: GetOperationStatus failed: o
 2015-10-09 14:24:04 INFO  XmlWebApplicationContext:951 - Closing Root WebApplicationContext: startup date [Fri Oct 09 14:18:38 IST 2015]; root of context hierarchy
 2015-10-09 14:25:29 INFO  PushHourlyDataTask:58 - 14008949 Nano Seconds Time Elapsed in downloading.
 2015-10-09 14:25:29 INFO  PushHourlyDataTask:61 - Downloading speed in Kbps = 4621.484375 Kbps
+2015-10-09 14:46:24 INFO  ContextLoader:307 - Root WebApplicationContext: initialization started
+2015-10-09 14:46:24 INFO  XmlWebApplicationContext:573 - Refreshing Root WebApplicationContext: startup date [Fri Oct 09 14:46:24 IST 2015]; root of context hierarchy
+2015-10-09 14:46:24 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+2015-10-09 14:46:24 INFO  ContextLoader:347 - Root WebApplicationContext: initialization completed in 336 ms
+2015-10-09 14:46:24 INFO  DispatcherServlet:488 - FrameworkServlet 'appServlet': initialization started
+2015-10-09 14:46:24 INFO  XmlWebApplicationContext:573 - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Oct 09 14:46:24 IST 2015]; parent: Root WebApplicationContext
+2015-10-09 14:46:24 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+2015-10-09 14:46:24 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-10-09 14:46:25 INFO  RequestMappingHandlerMapping:531 - Mapped "{[/select]}" onto public com.neova.isainterface.entity.ResponseData com.neova.isainterface.controller.SelectDataController.selectData(java.lang.String,java.lang.String)
+2015-10-09 14:46:25 INFO  RequestMappingHandlerMapping:531 - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.neova.isainterface.controller.HomeController.home(java.util.Locale,org.springframework.ui.Model) throws java.net.MalformedURLException,java.io.IOException
+2015-10-09 14:46:25 INFO  RequestMappingHandlerAdapter:532 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Oct 09 14:46:24 IST 2015]; parent: Root WebApplicationContext
+2015-10-09 14:46:25 INFO  RequestMappingHandlerAdapter:532 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Oct 09 14:46:24 IST 2015]; parent: Root WebApplicationContext
+2015-10-09 14:46:25 INFO  SimpleUrlHandlerMapping:341 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-10-09 14:46:25 INFO  StdSchedulerFactory:1184 - Using default implementation for ThreadExecutor
+2015-10-09 14:46:25 INFO  SchedulerSignalerImpl:61 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-10-09 14:46:25 INFO  QuartzScheduler:240 - Quartz Scheduler v.2.2.1 created.
+2015-10-09 14:46:25 INFO  RAMJobStore:155 - RAMJobStore initialized.
+2015-10-09 14:46:25 INFO  QuartzScheduler:305 - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-10-09 14:46:25 INFO  StdSchedulerFactory:1339 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+2015-10-09 14:46:25 INFO  StdSchedulerFactory:1343 - Quartz scheduler version: 2.2.1
+2015-10-09 14:46:25 INFO  QuartzScheduler:2311 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@185a17a5
+2015-10-09 14:46:25 INFO  DefaultLifecycleProcessor:341 - Starting beans in phase 2147483647
+2015-10-09 14:46:25 INFO  SchedulerFactoryBean:647 - Starting Quartz Scheduler now
+2015-10-09 14:46:25 INFO  QuartzScheduler:575 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+2015-10-09 14:46:25 INFO  DispatcherServlet:507 - FrameworkServlet 'appServlet': initialization completed in 752 ms
+2015-10-09 14:46:25 INFO  HomeController:35 - Welcome home! The client locale is  {en_US}
+2015-10-09 14:46:25 INFO  InternetSpeedDao:63 - calling selectData() method to select data.
+2015-10-09 14:46:25 INFO  InternetSpeedDao:64 - Provided Data :- startDate = 2015-10-06 11:30:06.0 endDate = 2015-10-08 19:00:05.0.
+2015-10-09 14:46:25 INFO  InternetSpeedDao:71 - select specified data query is (SELECT MAX(speed),MIN(speed),AVG(speed) FROM internet_speed WHERE (timestamp BETWEEN '2015-10-06 11:30:06.0' AND '2015-10-08 19:00:05.0') AND (speed < 6000)).
+2015-10-09 14:46:25 INFO  Utils:285 - Supplied authorities: 192.168.1.211:10000
+2015-10-09 14:46:25 INFO  Utils:372 - Resolved authority: 192.168.1.211:10000
+2015-10-09 14:46:25 INFO  HiveConnection:189 - Will try to open client transport with JDBC Uri: jdbc:hive2://192.168.1.211:10000/isanalyser
+2015-10-09 14:46:26 INFO  HiveJdbcClient:29 - Successfuly Connected to database...!
+2015-10-09 14:47:24 INFO  PushHourlyDataTask:58 - 18660856 Nano Seconds Time Elapsed in downloading.
+2015-10-09 14:47:24 INFO  PushHourlyDataTask:61 - Downloading speed in Kbps = 3291.8984375 Kbps
+2015-10-09 14:47:24 INFO  HomeController:43 - Adding serverTime to  model.
+2015-10-09 14:47:24 INFO  HomeController:45 - Adding responseData object to  model.
+2015-10-09 14:47:24 INFO  HomeController:47 - Adding currentDownloadSpeed to model.
+2015-10-09 14:50:00 INFO  PushHourlyDataTask:25 - timstamp is 2015-10-09 14:50:00.
+2015-10-09 14:50:06 INFO  PushHourlyDataTask:58 - 13876534 Nano Seconds Time Elapsed in downloading.
+2015-10-09 14:50:06 INFO  PushHourlyDataTask:61 - Downloading speed in Kbps = 4426.875 Kbps
+2015-10-09 14:50:06 INFO  InternetSpeedDao:19 - calling insert() method to insert data.
+2015-10-09 14:50:06 INFO  InternetSpeedDao:28 - insert query is (org.apache.hive.jdbc.HivePreparedStatement@1745d93f).
+2015-10-09 14:50:33 INFO  PushHourlyDataTask:30 - No. of rows Inserted..0
+2015-10-09 14:50:33 INFO  PushHourlyDataTask:31 - Calling Push Hourly Data...
+2015-10-09 14:52:28 INFO  HomeController:35 - Welcome home! The client locale is  {en_US}
+2015-10-09 14:52:28 INFO  InternetSpeedDao:63 - calling selectData() method to select data.
+2015-10-09 14:52:28 INFO  InternetSpeedDao:64 - Provided Data :- startDate = 2015-10-06 11:30:06.0 endDate = 2015-10-08 19:00:05.0.
+2015-10-09 14:52:28 INFO  InternetSpeedDao:71 - select specified data query is (SELECT MAX(speed),MIN(speed),AVG(speed) FROM internet_speed WHERE (timestamp BETWEEN '2015-10-06 11:30:06.0' AND '2015-10-08 19:00:05.0') AND (speed < 6000)).
+2015-10-09 14:53:18 INFO  PushHourlyDataTask:58 - 16084208 Nano Seconds Time Elapsed in downloading.
+2015-10-09 14:53:18 INFO  PushHourlyDataTask:61 - Downloading speed in Kbps = 5019.9609375 Kbps
+2015-10-09 14:53:18 INFO  HomeController:43 - Adding serverTime to  model.
+2015-10-09 14:53:18 INFO  HomeController:45 - Adding responseData object to  model.
+2015-10-09 14:53:18 INFO  HomeController:47 - Adding currentDownloadSpeed to model.
+2015-10-09 14:59:52 INFO  XmlWebApplicationContext:951 - Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Oct 09 14:46:24 IST 2015]; parent: Root WebApplicationContext
+2015-10-09 14:59:52 INFO  DefaultLifecycleProcessor:356 - Stopping beans in phase 2147483647
+2015-10-09 14:59:52 INFO  QuartzScheduler:613 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED paused.
+2015-10-09 14:59:52 INFO  SchedulerFactoryBean:765 - Shutting down Quartz Scheduler
+2015-10-09 14:59:52 INFO  QuartzScheduler:694 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED shutting down.
+2015-10-09 14:59:52 INFO  QuartzScheduler:613 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED paused.
+2015-10-09 14:59:52 INFO  QuartzScheduler:771 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED shutdown complete.
+2015-10-09 14:59:52 INFO  XmlWebApplicationContext:951 - Closing Root WebApplicationContext: startup date [Fri Oct 09 14:46:24 IST 2015]; root of context hierarchy
+2015-10-09 15:01:48 INFO  ContextLoader:307 - Root WebApplicationContext: initialization started
+2015-10-09 15:01:48 INFO  XmlWebApplicationContext:573 - Refreshing Root WebApplicationContext: startup date [Fri Oct 09 15:01:48 IST 2015]; root of context hierarchy
+2015-10-09 15:01:48 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+2015-10-09 15:01:48 INFO  ContextLoader:347 - Root WebApplicationContext: initialization completed in 340 ms
+2015-10-09 15:01:48 INFO  DispatcherServlet:488 - FrameworkServlet 'appServlet': initialization started
+2015-10-09 15:01:48 INFO  XmlWebApplicationContext:573 - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Oct 09 15:01:48 IST 2015]; parent: Root WebApplicationContext
+2015-10-09 15:01:48 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+2015-10-09 15:01:49 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-10-09 15:01:49 INFO  RequestMappingHandlerMapping:531 - Mapped "{[/select]}" onto public com.neova.isainterface.entity.ResponseData com.neova.isainterface.controller.SelectDataController.selectData(java.lang.String,java.lang.String)
+2015-10-09 15:01:49 INFO  RequestMappingHandlerMapping:531 - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.neova.isainterface.controller.HomeController.home(java.util.Locale,org.springframework.ui.Model) throws java.net.MalformedURLException,java.io.IOException
+2015-10-09 15:01:49 INFO  RequestMappingHandlerAdapter:532 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Oct 09 15:01:48 IST 2015]; parent: Root WebApplicationContext
+2015-10-09 15:01:49 INFO  RequestMappingHandlerAdapter:532 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Oct 09 15:01:48 IST 2015]; parent: Root WebApplicationContext
+2015-10-09 15:01:49 INFO  SimpleUrlHandlerMapping:341 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-10-09 15:01:49 INFO  StdSchedulerFactory:1184 - Using default implementation for ThreadExecutor
+2015-10-09 15:01:49 INFO  SchedulerSignalerImpl:61 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-10-09 15:01:49 INFO  QuartzScheduler:240 - Quartz Scheduler v.2.2.1 created.
+2015-10-09 15:01:49 INFO  RAMJobStore:155 - RAMJobStore initialized.
+2015-10-09 15:01:49 INFO  QuartzScheduler:305 - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-10-09 15:01:49 INFO  StdSchedulerFactory:1339 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+2015-10-09 15:01:49 INFO  StdSchedulerFactory:1343 - Quartz scheduler version: 2.2.1
+2015-10-09 15:01:49 INFO  QuartzScheduler:2311 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@61c0d34a
+2015-10-09 15:01:49 INFO  DefaultLifecycleProcessor:341 - Starting beans in phase 2147483647
+2015-10-09 15:01:49 INFO  SchedulerFactoryBean:647 - Starting Quartz Scheduler now
+2015-10-09 15:01:49 INFO  QuartzScheduler:575 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+2015-10-09 15:01:49 INFO  DispatcherServlet:507 - FrameworkServlet 'appServlet': initialization completed in 757 ms
+2015-10-09 15:01:50 INFO  HomeController:35 - Welcome home! The client locale is  {en_US}
+2015-10-09 15:01:50 INFO  InternetSpeedDao:63 - calling selectData() method to select data.
+2015-10-09 15:01:50 INFO  InternetSpeedDao:64 - Provided Data :- startDate = 2015-10-06 11:30:06.0 endDate = 2015-10-08 19:00:05.0.
+2015-10-09 15:01:50 INFO  InternetSpeedDao:71 - select specified data query is (SELECT MAX(speed),MIN(speed),AVG(speed) FROM internet_speed WHERE (timestamp BETWEEN '2015-10-06 11:30:06.0' AND '2015-10-08 19:00:05.0') AND (speed < 6000)).
+2015-10-09 15:01:50 INFO  Utils:285 - Supplied authorities: 192.168.1.211:10000
+2015-10-09 15:01:50 INFO  Utils:372 - Resolved authority: 192.168.1.211:10000
+2015-10-09 15:01:50 INFO  HiveConnection:189 - Will try to open client transport with JDBC Uri: jdbc:hive2://192.168.1.211:10000/isanalyser
+2015-10-09 15:01:50 INFO  HiveJdbcClient:29 - Successfuly Connected to database...!
+2015-10-09 15:02:41 INFO  PushHourlyDataTask:58 - 13339840 Nano Seconds Time Elapsed in downloading.
+2015-10-09 15:02:41 INFO  PushHourlyDataTask:61 - Downloading speed in Kbps = 4604.9765625 Kbps
+2015-10-09 15:02:41 INFO  HomeController:43 - Adding serverTime to  model.
+2015-10-09 15:02:41 INFO  HomeController:45 - Adding responseData object to  model.
+2015-10-09 15:02:41 INFO  HomeController:47 - Adding currentDownloadSpeed to model.
+2015-10-09 15:10:00 INFO  PushHourlyDataTask:25 - timstamp is 2015-10-09 15:10:00.
+2015-10-09 15:10:05 INFO  PushHourlyDataTask:58 - 13748235 Nano Seconds Time Elapsed in downloading.
+2015-10-09 15:10:05 INFO  PushHourlyDataTask:61 - Downloading speed in Kbps = 4468.1796875 Kbps
+2015-10-09 15:10:05 INFO  InternetSpeedDao:19 - calling insert() method to insert data.
+2015-10-09 15:10:05 INFO  InternetSpeedDao:28 - insert query is (org.apache.hive.jdbc.HivePreparedStatement@5dda1fc9).
+2015-10-09 15:10:35 INFO  PushHourlyDataTask:30 - No. of rows Inserted..0
+2015-10-09 15:10:35 INFO  PushHourlyDataTask:31 - Calling Push Hourly Data...
